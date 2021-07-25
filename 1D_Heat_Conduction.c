@@ -1,3 +1,4 @@
+/*Compiled by using GCC compiler in Linux*/
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
