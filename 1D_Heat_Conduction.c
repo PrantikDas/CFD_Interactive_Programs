@@ -1,4 +1,3 @@
-/*Compiled by using GCC compiler in Linux*/
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
@@ -12,7 +11,7 @@ int main()
  printf("Enter the number of discretised points on the rod excluding boundary nodes\n");
  scanf ("%d",&n);
  float x[n];
- float a[1000][1000]={0},T[1000]={0};
+ float a[100][100]={0},T[100]={0};
  float Ta,Tb;
  float pivot = 0.0;
  float factor = 0.0;
@@ -101,12 +100,13 @@ else
     }
 }
 } 
-for(i=1;i<=n;i++)
+    T[0]=Ta;
+    T[n+1]=Tb;
+for(i=0;i<=n+1;i++)
 {
     printf("\n\tT[%1d]=%10.4f",i,T[i]); 
 } 
-    T[0]=Ta;
-    T[n+1]=Tb;
+   
     FILE *gnuplot = fopen("gnuplot.txt", "w");
     for (i = 0; i <= n+1; i++)
     fprintf(gnuplot, "%g %g\n", x[i], T[i]);
@@ -114,6 +114,7 @@ for(i=1;i<=n;i++)
     t = clock() - t; 
     double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds 
     printf("\n The program took %f seconds to execute \n", time_taken); 
+    system ("Pause");
 return 0;
 }
 
